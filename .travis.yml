@@ -1,0 +1,9 @@
+sudo: required
+services:
+ - docker
+
+before_install:
+ - docker build -t ivanovadev/docker-react  -f Dockerfile.dev .
+
+script:
+ - docker run ivanovadev/docker-react npm run test -- --coverage
